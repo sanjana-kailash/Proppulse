@@ -27,3 +27,6 @@ Thumbs.db
 
 # Local agent metadata
 .claude/
+
+# Runtime logs
+*.log
