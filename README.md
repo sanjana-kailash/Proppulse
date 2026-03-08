@@ -1,4 +1,4 @@
-# PropPulse — Melbourne Property Market Intelligence
+# PropPulse - Melbourne Property Market Intelligence
 
 AI-driven weekly market brief generator for Melbourne real estate agents.
 
@@ -26,19 +26,19 @@ npm install
 npm run dev
 ```
 
-Frontend runs on http://localhost:5173 — API requests are proxied to http://localhost:8000.
+Frontend runs on http://localhost:5173 - API requests are proxied to http://localhost:8000.
 
 ## Project Structure
 ```
 backend/
-  main.py          — FastAPI endpoints
-  scraper.py       — Domain, ABC News, RBA, ABS scrapers
-  nlp_pipeline.py  — spaCy NER + BERTopic
-  rag_pipeline.py  — LangChain + Groq brief generation & chat
-  data/suburbs/    — JSON data files per suburb
-  data/briefs/     — Generated briefs by week
+  main.py          - FastAPI endpoints
+  scraper.py       - Domain, ABC News, RBA, ABS scrapers
+  nlp_pipeline.py  - spaCy NER + BERTopic
+  rag_pipeline.py  - LangChain + Groq brief generation & chat
+  data/suburbs/    - JSON data files per suburb
+  data/briefs/     - Generated briefs by week
 
 frontend/src/
-  pages/           — DashboardPage, BriefPage, SuburbPage, SettingsPage
-  components/      — Dashboard, SuburbCard, WeeklyBrief, ChatAssistant, TrendChart, Settings
+  pages/           - DashboardPage, BriefPage, SuburbPage, SettingsPage
+  components/      - Dashboard, SuburbCard, WeeklyBrief, ChatAssistant, TrendChart, Settings
 ```
