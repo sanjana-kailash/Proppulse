@@ -1,0 +1,3 @@
+# This directory stores generated AI briefs, organised by ISO week.
+# Example structure: briefs/2026-W10/richmond.json
+# Written by rag_pipeline.py — save_brief()

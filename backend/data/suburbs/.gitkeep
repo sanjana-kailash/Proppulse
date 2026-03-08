@@ -1,0 +1,3 @@
+# This directory stores one JSON file per suburb, updated weekly by the NLP pipeline.
+# Example: richmond.json, fitzroy.json, st-kilda.json
+# Schema defined in nlp_pipeline.py — build_suburb_context()

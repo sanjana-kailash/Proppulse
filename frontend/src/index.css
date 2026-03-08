@@ -1,0 +1,7 @@
+/* index.css — Global styles entry point */
+/* Tailwind CSS directives — do not remove these three lines */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Add any global custom styles below */

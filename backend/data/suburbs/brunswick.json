@@ -1,0 +1,70 @@
+{
+  "suburb": "Brunswick",
+  "suburb_slug": "brunswick",
+  "postcode": "3056",
+  "week": "2026-W09",
+  "generated_at": "2026-03-08T02:49:00.543631+00:00",
+  "metrics": {
+    "median_house_price": 1175000,
+    "median_unit_price": 490000,
+    "clearance_rate": 66.3,
+    "median_days_on_market": 35,
+    "quarterly_growth": 0.9
+  },
+  "market_context": {
+    "sentiment": "positive",
+    "top_themes": [
+      "Market outlook & confidence",
+      "Buyer & investor activity",
+      "Supply & new development",
+      "Auction & price movement",
+      "Rental market & affordability"
+    ],
+    "key_statistics": {
+      "prices": [
+        826132
+      ],
+      "percentages": [
+        "-0.4%",
+        "4.7%",
+        "1.0%",
+        "11.8%",
+        "-0.5%",
+        "-6%",
+        "-10%",
+        "-11%",
+        "-5%",
+        "-3%",
+        "5%",
+        "6%",
+        "4%",
+        "1%",
+        "5.4%",
+        "6.5%",
+        "6.2%",
+        "5.5%",
+        "10%",
+        "8%"
+      ],
+      "rates": []
+    }
+  },
+  "relevant_content": [
+    "Home › Property Market Update › Melbourne, VIC",
+    "Melbourne Property Market – Prices, Trends, Forecast [March 2026]",
+    "After a strong rebound from the 2022 downturn, Melbourne’s housing market has shifted into a slower phase. Values were flat over the latest month and slightly down over the past quarter, suggesting buyers and sellers are rebalancing after a period of steady recovery. Even so, annual growth remains positive, and the city continues to sit close to prior highs, indicating the market is cooling rather than reversing.",
+    "See how Melbourne’s property values have performed across houses and units over various timeframes, along with returns, yields, and median prices.",
+    "Watch Cotality’s February 2026 Housing Market Update for expert commentary on national and capital city housing trends, price movements, and key market drivers across Melbourne.",
+    "Melbourne Property Price Growth",
+    "Price growth in Melbourne is best described as “positive but slowing.” Over the past 12 months, dwelling values rose 4.7%, keeping the city in recovery territory, but the near-term trend has cooled with a flat month and a negative quarter. That combination usually signals a market moving from momentum-led growth into a more balanced phase where outcomes depend more on property quality, price point, and negotiation.",
+    "Zooming out, the longer-term picture still looks constructive. Over the past five years, values increased 11.8%, which reflects the city’s resilience across multiple market cycles. However, since the previous rate-hiking cycle began in May 2022, Melbourne is slightly lower overall (-0.5%), highlighting how interest-rate settings and borrowing capacity have been major swing factors for demand.",
+    "Melbourne Property Market Trends",
+    "Melbourne Property Market Forecast",
+    "The most likely path for Melbourne through 2026 is modest, uneven growth rather than a broad-based surge. Demand faces meaningful headwinds from affordability constraints, tighter credit at higher debt-to-income levels, and softer sentiment, all of which tend to limit how far prices can run, especially at the top end of the market.",
+    "ANZ predicts a 5-6% increase in capital city property prices in 2024, with Brisbane expected to see the highest rise at 9-10%, Perth property values could go up by 1-11%, Sydney by 4-5%, and Melbourne prices by 2-3%.",
+    "CBA forecasts a 5% rise in capital city prices, with some variations: Brisbane is anticipated to grow by 6%, Melbourne and Perth by 5%, Sydney by 4%, and Adelaide by 1%.",
+    "NAB projects a 5.4% average increase across the capitals, with Brisbane expected to see a 6.5% rise, Perth and Adelaide by 6.2%, Melbourne by 5.5%, Sydney by 5%, and Hobart remaining flat.",
+    "Westpac expects a 6% growth across the combined capitals, with Perth leading at 10%, followed by Brisbane at 8%, Sydney at 6%, Adelaide at 4%, and Melbourne at 3%",
+    "Melbourne is in a transition stage, moving from recovery-driven gains into a flatter, more negotiated market. Annual growth remains positive and values are close to prior peaks, but the weaker quarterly trend is a reminder that interest rates, borrowing capacity, and confidence are now bigger drivers than pure scarcity."
+  ]
+}
