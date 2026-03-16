@@ -2,8 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import SuburbCard from '../components/SuburbCard'
-
-const API = ''
+import { API_BASE as API } from '../api.js'
 
 const SENTIMENT_STYLES = {
   positive: { bg: 'bg-green-100', text: 'text-green-800', dot: 'bg-green-500' },

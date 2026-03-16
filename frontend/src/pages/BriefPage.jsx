@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
-const API = ''
+import { API_BASE as API } from '../api.js'
 
 // Map section keys (from parsed brief JSON) to display labels and accent colours
 const SECTION_CONFIG = {
