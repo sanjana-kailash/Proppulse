@@ -16,8 +16,6 @@ import re
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
 
-import spacy
-
 
 # ---------------------------------------------------------------------------
 # Paths & config
@@ -264,49 +262,42 @@ def _parse_price(text: str) -> int | None:
 
 
 # ---------------------------------------------------------------------------
-# spaCy NER
+# Regex-based NER (replaces spaCy)
 # ---------------------------------------------------------------------------
 
-def load_spacy_model():
-    try:
-        return spacy.load("en_core_web_sm")
-    except OSError:
-        raise RuntimeError(
-            "spaCy model not found. Run:  python -m spacy download en_core_web_sm"
-        )
+_KNOWN_ORGS = [
+    "RBA", "Reserve Bank", "REIV", "CoreLogic", "Domain", "REA Group",
+    "PropTrack", "APRA", "ABS", "Treasury", "ANZ", "Commonwealth Bank",
+    "Westpac", "NAB", "Ray White", "Barry Plant", "hockingstuart",
+]
 
 
-def extract_entities(text: str, nlp) -> dict:
-    """
-    Run spaCy NER on text. Returns suburb mentions, price entities, orgs, percents.
-    Truncates to 100k chars to stay within spaCy's default limit.
-    """
-    doc = nlp(text[:100_000])
+def extract_entities(text: str) -> dict:
+    """Extract suburb mentions, prices, percentages, orgs and property types via regex."""
+    # Suburb mentions
+    suburbs = [s for s in KNOWN_SUBURBS if s.lower() in text.lower()]
 
-    suburbs, prices, percentages, organisations = [], [], [], []
+    # Price entities
+    raw_prices = re.findall(r"\$[\d,]+(?:\.\d+)?[mk]?", text, re.I)
+    prices = [p for p in (_parse_price(r) for r in raw_prices) if p and p > 100_000]
 
-    for ent in doc.ents:
-        if ent.label_ == "GPE" and ent.text in KNOWN_SUBURBS:
-            suburbs.append(ent.text)
-        elif ent.label_ == "MONEY":
-            parsed = _parse_price(ent.text)
-            if parsed and parsed > 100_000:
-                prices.append(parsed)
-        elif ent.label_ == "PERCENT":
-            percentages.append(ent.text)
-        elif ent.label_ == "ORG":
-            organisations.append(ent.text)
+    # Percentages
+    percentages = [p.strip() for p in re.findall(r"-?[\d]+\.?\d*\s*(?:per\s*cent|%)", text, re.I)]
 
+    # Known organisations
+    organisations = [org for org in _KNOWN_ORGS if org.lower() in text.lower()]
+
+    # Property types
     property_type_re = re.compile(
         r"\b(house|unit|apartment|townhouse|villa|duplex|terrace|cottage)\b", re.I
     )
     property_types = list({m.group().lower() for m in property_type_re.finditer(text)})
 
     return {
-        "suburbs_mentioned": list(dict.fromkeys(suburbs)),
+        "suburbs_mentioned": suburbs,
         "prices": sorted(set(prices), reverse=True)[:10],
         "percentages": list(dict.fromkeys(percentages))[:15],
-        "organisations": list(dict.fromkeys(organisations))[:10],
+        "organisations": organisations[:10],
         "property_types": property_types,
     }
 
@@ -428,14 +419,9 @@ def run_pipeline() -> dict:
     combined_text = " ".join(all_blocks)
     print(f"[NLP] Total content blocks: {len(all_blocks)}")
 
-    # --- Load spaCy ---
-    print("[NLP] Loading spaCy model...")
-    nlp = load_spacy_model()
-    print("[NLP] Model ready.")
-
     # --- NER across combined corpus ---
-    print("[NLP] Running NER...")
-    entities = extract_entities(combined_text, nlp)
+    print("[NLP] Running NER (regex)...")
+    entities = extract_entities(combined_text)
     print(f"  Suburbs mentioned : {entities['suburbs_mentioned']}")
     print(f"  Prices found      : {len(entities['prices'])}")
     print(f"  Orgs found        : {entities['organisations'][:5]}")
